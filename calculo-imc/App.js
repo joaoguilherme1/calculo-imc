@@ -18,7 +18,7 @@ export default function App() {
                 Alert.alert('Abaixo do peso', 'IMC: ' + imc.toFixed(2))
             } else if (imc >= 18.6 && imc <= 24.9) {
                 Alert.alert('Peso normal', 'IMC: ' + imc.toFixed(2))
-            } else if (imc >= 25) {
+            } else if (imc > 24.9) {
                 Alert.alert('Sobrepeso', 'IMC: ' + imc.toFixed(2))
             }
         }
