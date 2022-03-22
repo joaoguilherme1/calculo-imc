@@ -1,39 +1,39 @@
-
-// Pessoa A linha 15
-// Pessoa B linha 29
+// Pessoa A -> Tainara 
+// Pessoa B -> João Guilherme
 
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native'
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert, Button } from 'react-native'
 
 export default function App() {
 
     const [peso, setPeso] = useState('');
     const [altura, setAltura] = useState('');
 
-    function handleSubmit() {
-
-        //           Pessoa A
-
-        // nesta função primeiramente calcule o imc
-        // depois coloque para cada caso uma frase 
-        // abaixo de 18.6
-        // entre 18.6 e 24.9
-        // acima de 24.9
-    }
-
-    
+    const handleSubmit = () => {
+        if (peso == '' || altura == '') {
+            Alert.alert('Erro', 'Preencha todos os campos!')
+        } else {
+            const imc = peso / (altura * altura);
+            if (imc < 18.6) {
+                Alert.alert('Abaixo do peso', 'IMC: ' + imc.toFixed(2))
+            } else if (imc >= 18.6 && imc <= 24.9) {
+                Alert.alert('Peso normal', 'IMC: ' + imc.toFixed(2))
+            } else if (imc >= 25) {
+                Alert.alert('Sobrepeso', 'IMC: ' + imc.toFixed(2))
+            }
+        }
+    };
 
     return (
-
       <View style={styles.container}>
             <Text style={styles.title}>Calculadora de IMC</Text>
-            <TextInput style={styles.input} placeholder="Peso" placeholderTextColor="#999" keyboardType="numeric" maxLength={3} value={peso} onChangeText={setPeso} />
-            <TextInput style={styles.input} placeholder="Altura" placeholderTextColor="#999" keyboardType="numeric" maxLength={3} value={altura} onChangeText={setAltura} />
+            <TextInput style={styles.input} placeholder="Peso(Kg)" placeholderTextColor="#999" keyboardType="numeric" maxLength={3} value={peso} onChangeText={setPeso} />
+            <TextInput style={styles.input} placeholder="Altura(m)" placeholderTextColor="#999" keyboardType="numbers-and-punctuation" maxLength={4} value={altura} onChangeText={setAltura} />
+            <Button title="Calcular" onPress={handleSubmit} />
             <TouchableOpacity style={styles.button} onPress={handleSubmit}>
                 <Text style={styles.buttonText}>Calcular</Text>
             </TouchableOpacity>
       </View>
-
     );
 }
 
@@ -67,19 +67,3 @@ const styles = StyleSheet.create({
         fontSize: 25,
     }
 })
-
-/*
-                Pessoa B
-
-<View style={styles.container}>
-    <Text style={styles.title}>Calculadora de IMC</Text>
-    <TextInput style={styles.input} placeholder="Peso" placeholderTextColor="#999" keyboardType="numeric" maxLength={3} value={peso} onChangeText={setPeso} />
-    <TextInput style={styles.input} placeholder="Altura" placeholderTextColor="#999" keyboardType="numeric" maxLength={3} value={altura} onChangeText={setAltura} />
-    <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-        <Text style={styles.buttonText}>Calcular</Text>
-    </TouchableOpacity>
-</View>
-Coloque aqui View, Text, TextInput, TouachableOpacity,
-quando utilizar o textInput pode mudar a cor do placeholder
-passando a seguinte propriedade >>> placeholderTextColor='#785463'
-*/
