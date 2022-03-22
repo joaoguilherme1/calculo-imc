@@ -25,15 +25,14 @@ export default function App() {
     };
 
     return (
-      <View style={styles.container}>
-            <Text style={styles.title}>Calculadora de IMC</Text>
-            <TextInput style={styles.input} placeholder="Peso(Kg)" placeholderTextColor="#999" keyboardType="numeric" maxLength={3} value={peso} onChangeText={setPeso} />
-            <TextInput style={styles.input} placeholder="Altura(m)" placeholderTextColor="#999" keyboardType="numbers-and-punctuation" maxLength={4} value={altura} onChangeText={setAltura} />
-            <Button title="Calcular" onPress={handleSubmit} />
-            <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-                <Text style={styles.buttonText}>Calcular</Text>
-            </TouchableOpacity>
-      </View>
+    <View style={styles.container}>
+        <Text style={styles.title}>Calculadora de IMC</Text>
+        <TextInput style={styles.input} placeholder="Peso(Kg)" placeholderTextColor="#999" keyboardType="numeric" maxLength={3} value={peso} onChangeText={setPeso} />
+        <TextInput style={styles.input} placeholder="Altura(m)" placeholderTextColor="#999" keyboardType="numbers-and-punctuation" maxLength={4} value={altura} onChangeText={setAltura} />
+        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+            <Text style={styles.buttonText}>Calcular</Text>
+        </TouchableOpacity>
+    </View>
     );
 }
 
